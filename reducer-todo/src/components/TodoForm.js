@@ -15,6 +15,10 @@ const TodoForm = () => {
     dispatch({ type: "TOGGLE_COMPLETE", id: todo.id });
     console.log(state.todos);
   };
+
+  const removeCompleted = () => {
+    dispatch({ type: "REMOVE_COMPLETE" });
+  };
   //   text: todo.currentTarget.innerText;
   return (
     <div>
@@ -36,6 +40,7 @@ const TodoForm = () => {
             }
           });
           setTodoText("");
+          console.log(state.todos);
         }}
       >
         Add todo
@@ -43,19 +48,9 @@ const TodoForm = () => {
       {state.todos.map(todo => {
         return <Todo key={todo.id} todo={todo} handleClick={handleClick} />;
       })}
+      <button onClick={removeCompleted}>Remove completed</button>
     </div>
   );
 };
 
 export default TodoForm;
-
-// onClick={() =>
-//     dispatch({
-//       type: "ADD_TODO",
-//       payload: {
-//         item: todoText,
-//         completed: false,
-//         id: Date.now()
-//       }
-//     })
-//   }

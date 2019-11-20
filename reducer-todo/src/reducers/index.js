@@ -26,6 +26,11 @@ export const todoReducer = (state, action) => {
           }
         })
       };
+    case "REMOVE_COMPLETE":
+      return {
+        ...state,
+        todos: state.todos.filter(x => x.completed === false)
+      };
 
     default:
       return state;
