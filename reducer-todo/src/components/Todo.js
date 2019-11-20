@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
-const Todo = (props) => {
-    return (
-        <div>
-            <p>{props.item}</p>
-        </div>
-    )
-}
+const Todo = props => {
+  return (
+    <div className="todo">
+      <p className="" onClick={() => props.handleClick(props.todo)}>
+        {props.todo.item}
+      </p>
+    </div>
+  );
+};
 
 export default Todo;

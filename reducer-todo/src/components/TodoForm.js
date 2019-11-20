@@ -11,11 +11,11 @@ const TodoForm = () => {
     console.log(todoText);
   };
 
-  // const handleSubmit = e => {
-  //     e.preventDefault();
-  //     setTodoText('');
-  // }
-
+  const handleClick = todo => {
+    dispatch({ type: "TOGGLE_COMPLETE", id: todo.id });
+    console.log(state.todos);
+  };
+  //   text: todo.currentTarget.innerText;
   return (
     <div>
       <input
@@ -41,7 +41,7 @@ const TodoForm = () => {
         Add todo
       </button>
       {state.todos.map(todo => {
-        return <Todo id={todo.id} item={todo.item} />;
+        return <Todo key={todo.id} todo={todo} handleClick={handleClick} />;
       })}
     </div>
   );
